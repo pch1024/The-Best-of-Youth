@@ -1,0 +1,20 @@
+<!--pages/index/index.wxml-->
+<layout>
+
+  <view slot='main'>
+      <view class='blend'> </view>
+      <view class='avatar'>
+        <image mode="aspectFill" src="{{user.avatar}}"></image>
+      </view>
+      <view class='name'>
+        <text>{{user.name}}</text>
+      </view>
+
+      <view class='tree'>
+        <view class='branch' wx:for="{{user.life}}" wx:key="{{index}}">
+          <text>{{item.year}} 年</text> {{item.text}}
+        </view>
+      </view>
+  </view>
+
+</layout>

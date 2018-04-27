@@ -1,0 +1,14 @@
+<!--layout/layout.wxml-->
+ <view class='header'>
+   <slot name="header"></slot>
+</view> 
+
+<view class='main'>
+  <scroll-view scroll-y style="height: {{scroll_WH}};" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+    <slot name="main"></slot>
+  </scroll-view>
+</view>
+<!-- 
+<view class='footer'>
+    <nav-component></nav-component>
+</view> -->

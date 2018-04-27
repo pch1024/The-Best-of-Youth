@@ -1,0 +1,91 @@
+/* pages/index/index.wxss */
+
+/* color #ACACAC */
+.name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+}
+.avatar {
+  margin: 15px 0;
+}
+.avatar image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.tree {
+  overflow: hidden;
+  padding-top: 15px;
+  padding-bottom: 100px;
+}
+
+.tree .branch {
+  width: calc(50% - 31px);
+  color: white;
+  position: relative;
+  padding: 15px;
+  text-align: justify;
+}
+
+.tree .branch:nth-child(odd) {
+  float: left;
+  border-right: 2px solid gray;
+}
+
+.tree .branch:nth-child(even) {
+  float: right;
+  border-left: 2px solid gray;
+}
+
+.tree .branch text {
+  position: absolute;
+  top: calc(50% - 15px);
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.tree .branch:nth-child(odd) text {
+  right: -100%;
+}
+
+.tree .branch:nth-child(even) text {
+  left: -100%;
+}
+
+.tree .branch::after {
+  width: 8px;
+  height: 8px;
+  content: "";
+  position: absolute;
+  top: -4px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.tree .branch:nth-child(odd)::after {
+  right: -5px;
+}
+
+.tree .branch:nth-child(even)::after {
+  left: -5px;
+}
+
+.blend {
+  position: fixed;
+  height: calc(100% - 160px);
+  background-image: url('http://p7bbwv70f.bkt.clouddn.com/blend.png');
+  top: 100px;
+  z-index: 999;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  background-size: cover;
+  mix-blend-mode: difference;
+}

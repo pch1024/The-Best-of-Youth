@@ -1,0 +1,5 @@
+<!--components/navigation/nav.wxml-->
+<view class="nav">
+  <navigator open-type="switchTab" url="/pages/index/index">今日推荐</navigator>
+  <navigator open-type="switchTab" url="/pages/me/me">我的信息</navigator>
+</view>
