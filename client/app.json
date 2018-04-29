@@ -1,9 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/me/me",
-    "pages/addCgi/addCgi",
-    "pages/test/test"
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,12 +26,6 @@
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me-active.png",
         "text": "我的人生"
-      },
-      {
-        "pagePath": "pages/test/test",
-        "iconPath": "images/me.png",
-        "selectedIconPath": "images/me-active.png",
-        "text": "test"
       }
     ]
   }

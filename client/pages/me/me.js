@@ -7,11 +7,10 @@ const config = require('../../config')
 const util = require('../../utils/util.js')
 
 function extendDeep(parent, child) {
-  var i,
-    toStr = Object.prototype.toString,
-    astr = "[object Array]";
-  child = child || {};
-  for (i in parent) {
+  var toStr = Object.prototype.toString,
+    astr = "[object Array]",
+    child = child || {};
+  for (var i in parent) {
     if (parent.hasOwnProperty(i)) {
       if (typeof parent[i] === "object") {
         child[i] = toStr.call(parent[i]) === astr ? [] : {};
@@ -30,12 +29,12 @@ Page({
   data: {
     isEdit: false,  // 编辑状态
     date: now,      // 时间限制和默认时间
-    openId:'',
+    openId: '',
     nickName: "",
     avatarUrl: "",
-    word:'',        // 座右铭
+    word: '',        // 座右铭
     story: [],       // 人生故事
-    cacheStory:''    // 人生故事暂存
+    cacheStory: ''    // 人生故事暂存
   },
   addEvent: function (e) {
     let tmp_story = this.data.story.slice();
@@ -78,17 +77,17 @@ Page({
   // 表单提交
   formSubmit: function (e) {
     let formDatas = e.detail.value;
-    let counter=0;
-    for (let key in formDatas){
-      if ((/^event-status/i).test(key)){
+    let counter = 0;
+    for (let key in formDatas) {
+      if ((/^event-status/i).test(key)) {
         counter++
       }
     }
     let tmp_story = [];
-    for(var i=0; i<counter; i++){
+    for (var i = 0; i < counter; i++) {
       tmp_story.push({
-        status: formDatas['event-status-'+i],
-        date: formDatas['event-date-' + i].substr(0,4),
+        status: formDatas['event-status-' + i],
+        date: formDatas['event-date-' + i].substr(0, 4),
         text: formDatas['event-text-' + i],
       })
     }
@@ -103,8 +102,8 @@ Page({
     qcloud.request({
       url: `${config.service.host}/weapp/story`,
       data: {
-        'method':"update",
-        'openId': _this.data.openId ,
+        'method': "update",
+        'openId': _this.data.openId,
         'nickName': _this.data.nickName,
         'avatarUrl': _this.data.avatarUrl,
         'story': _this.data.story,
@@ -119,14 +118,14 @@ Page({
         console.log('request fail', error);
       }
     })
-    
+
   },
   // 日期修改
   bindDateChange: function (e) {
 
     let tmp_story = this.data.story;
     let index = e.currentTarget.dataset.current;
-    let value = e.detail.value.substr(0,4);
+    let value = e.detail.value.substr(0, 4);
     tmp_story[index].date = value;
 
     this.setData({
@@ -185,41 +184,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 })

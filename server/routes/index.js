@@ -32,25 +32,7 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 
-// // 2018年4月25日21:10:54 phlip-hello-world
-// router.get('/demo',controllers.demo)
-// // 2018年4月25日21:43:17 Philip - getRecommend
-// router.post('/story',authorizationMiddleware,controllers.story)
-// 2018年4月26日12:28:37 me update
-router.get('/onLogin',authorizationMiddleware,controllers.login)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 用户信息接口（可以用来验证登录态）
+router.get('/getOther', validationMiddleware, controllers.other)
 
 module.exports = router

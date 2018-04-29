@@ -4,7 +4,11 @@ module.exports = async (ctx, next) => {
     // 具体查看：
     if (ctx.state.$wxInfo.loginState === 1) {
         // loginState 为 1，登录态校验成功
-        ctx.state.data = ctx.state.$wxInfo.userinfo
+        // ctx.state.data = ctx.state.$wxInfo.userinfo
+        ctx.state.data = {
+          nickName: ctx.state.$wxInfo.userinfo.nickName,
+          avatarUrl: ctx.state.$wxInfo.userinfo.avatarUrl
+        }
     } else {
         ctx.state.code = -1
     }
